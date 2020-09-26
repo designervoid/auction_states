@@ -9,6 +9,9 @@
     width: 169px;
     height: 24px;
     color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .apply-price-button {
@@ -19,6 +22,17 @@
     background: #FE7C8F;
 }
 
-.button-decision-icons {
-    margin-left: 0.5rem;
+.dropdown-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-button-decision-parent {
+    display: flex;
+    justify-content: center;
+}
+
+.button-decision-parent {
+    display: flex;
 }
