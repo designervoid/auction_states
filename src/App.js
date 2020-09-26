@@ -1,26 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import PriceNegotiation from './components/PriceNegotiation'
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PriceNegotiation state={0}/>
+      <PriceNegotiation state={1}/>
+      <PriceNegotiation state={2}/>
+      <PriceNegotiation state={3}/>
     </div>
   );
 }
-
-export default App;
