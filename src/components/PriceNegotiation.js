@@ -4,18 +4,21 @@ import './PriceNegotiation.css'
 
 export default function PriceNegotiation(props) {
     const [states] = useState({
-        0: 'не требуется',
-        1: 'требуется',
-        2: 'согласовано',
-        3: 'не согласовано'
+        0: 'Не требуется',
+        1: 'Требуется',
+        2: 'Согласовано',
+        3: 'Не согласовано'
     })
 
     const [state, setState] = useState(props.state)
 
+    const [actions] = useState([{ state: 0, action: 'Не требуется'}, { state: 1, action: 'Требуется'}])
+    
+
     if (state === 0) {
         return (
             <div className="container">
-                    Согласование цены: Не требуется
+                    Согласование цены: {states[state]}
             </div>
         );
     }
@@ -24,7 +27,7 @@ export default function PriceNegotiation(props) {
         return (
             <div className="container">
                 <div>
-                    Согласование цены: Требуется
+                    Согласование цены: {states[state]}
                 </div>
                 <div>
                     <button className="button-decision apply-price-button" onClick={() => setState(2)}>
@@ -44,14 +47,27 @@ export default function PriceNegotiation(props) {
         );
     }
 
-    if (state === 2 || state === 3) {
+    if (state === 2) {
         return (
             <div className="container">
                 <div>
                     Согласование цены: {states[state]} <br />
                 </div>
                 <div>
-                    <DropdownMenu text="Изменить статус согласования" actions={[{ state: 0, action: 'не требуется'}, { state: 1, action: 'требуется'}]} hook={setState} />
+                    <DropdownMenu text="Изменить статус согласования" actions={actions} changingStateHook={setState} />
+                </div>
+            </div>
+        );
+    }
+
+    if (state === 3) {
+        return (
+            <div className="container">
+                <div>
+                    Согласование цены: {states[state]} <br />
+                </div>
+                <div>
+                    <DropdownMenu text="Изменить статус согласования" actions={actions} changingStateHook={setState} />
                 </div>
             </div>
         );

@@ -3,9 +3,9 @@ import './DropdownMenu.css'
 
 export default function DropdownMenu(props) {
     const actions = props.actions
-    const hook = props.hook
+    const changingStateHook = props.changingStateHook
     const dropdownContent = actions.map((el) =>
-        <div onClick={() => hook(el.state)}>{el.action}</div>
+        <div onClick={() => changingStateHook(el.state)}>{el.action}</div>
     );
     return (
         <div className="dropdown">
